@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>抽獎</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <link rel="stylesheet" href="style.css">
+    <div class="jumbotron vertical-center">
+        <div class="container">
+            <h2>獎項</h2>
+            <textarea id="awardsTextArea" placeholder="請輸入獎項，一行一個獎項&#13;&#10;e.g頭獎&#13;&#10;二獎&#13;&#10;三獎"></textarea>
+        </div>
+
+        <div class="container">
+            <h2>名單</h2>
+            <textarea id="listTextArea" placeholder="請輸入名單，一行一個名單&#13;&#10;e.g 0001 1號&#13;&#10;0002 2號&#13;&#10;0003 3號"></textarea>
+        </div>
+
+        <div class="container">
+            <input class="lotteryButton" type="button" value="點擊抽獎" onclick="lottery()">
+            <textarea id="resultArea" placeholder="獲獎名單"></textarea>
+        </div>
+
+        <div class="container">
+            <br>
+            <br>
+            <input class="downloadButton" type="button" value="下載結果" onclick="downloadResult()">
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
