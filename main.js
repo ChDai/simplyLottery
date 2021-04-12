@@ -53,7 +53,7 @@ function getList() {
 
 function downloadResult(){
     var result = document.getElementById('resultArea').value;
-    if (result.length <=0 ) {alert("無抽獎結果")};
+    if (result.length <=0 ) {return alert("無抽獎結果")};
     var element = document.createElement('a');
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(result));
     element.setAttribute('download', "result");
