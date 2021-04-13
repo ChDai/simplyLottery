@@ -12,7 +12,7 @@ function lottery() {
         }
         var result = "-----------------------\n" + awards[i] + "\n" + randItem;
         appendResult(resultTextArea, result);
-        list = list.filter(function(e) { return e !== randItem });
+        list = list.filter(function (e) { return e !== randItem });
     }
 }
 
@@ -34,9 +34,31 @@ function getAwards() {
     if (a.count <= 0) {
         return alert('請輸入獎項');
     }
-    a = a.filter(function (el) {el = el.split(' ').join(''); return el.length > 0 });
-    return a;
+    var a1 = []
+    for (var i = 0; i < a.length; i++) {
+        var details = a[i].split('*');
+        if (details.length <= 1) {
+            a1.push(a[i]);
+            break;
+        }
+        var title = details[0];
+        var amount = details[1];
+        if (isNumeric(amount) == false) {
+            a1.push(title);
+            break;
+        }
+        for (var k = 0; k < parseInt(amount); k++) {
+            a1.push(title);
+        }
+    }
+    a1 = a1.filter(function (el) { el = el.split(' ').join(''); return el.length > 0 });
+    return a1;
 }
+
+function isNumeric(str) {
+    if (typeof str != "string") return false 
+    return !isNaN(str) && !isNaN(parseFloat(str)) 
+  }
 
 function getList() {
     var lText = document.getElementById('listTextArea').value;
@@ -47,13 +69,13 @@ function getList() {
     if (l.count <= 0) {
         return alert('請輸入名單');
     }
-    l = l.filter(function (el) {el = el.split(' ').join(''); return el.length > 0 });
+    l = l.filter(function (el) { el = el.split(' ').join(''); return el.length > 0 });
     return l;
 }
 
-function downloadResult(){
+function downloadResult() {
     var result = document.getElementById('resultArea').value;
-    if (result.length <=0 ) {return alert("無抽獎結果")};
+    if (result.length <= 0) { return alert("無抽獎結果") };
     var element = document.createElement('a');
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(result));
     element.setAttribute('download', "result");
